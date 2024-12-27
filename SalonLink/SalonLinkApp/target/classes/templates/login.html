@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href= "@{/css/styles.css}">
+</head>
+<body>
+<h2>Login Form</h2>
+<div th:if="${message}" class="alert alert-success">
+    <p th:text="${message}"></p>
+</div>
+
+<div th:if="${error}" class="alert alert-danger">
+    <p th:text="${error}"></p>
+</div>
+<form action="/api/SalonLink/login" method="post">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="example@example.com" required>
+    <br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="button" onclick="togglePassword()">Show Password</button>
+    <br><br>
+
+    <button type="submit">Login</button>
+</form>
+<a href="/api/SalonLink/registration">Don't have an account? Register</a>
+
+<script>
+    function togglePassword() {
+        const passwordField = document.getElementById('password');
+        const type = passwordField.type === 'password' ? 'text' : 'password';
+        passwordField.type = type;
+    }
+</script>
+</body>
+</html>

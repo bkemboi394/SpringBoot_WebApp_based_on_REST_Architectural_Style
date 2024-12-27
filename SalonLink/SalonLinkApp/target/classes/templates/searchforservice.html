@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for Service</title>
+    <link rel="stylesheet" th:href= "@{/css/styles.css}">
+</head>
+<body>
+<h2>Search For Service</h2>
+<p>Enter the service you're looking for. We'll find salons nearby that offer it!</p>
+<form action="/api/SalonLink/searchforservice" method="post">
+    <label for="service">Service:</label>
+    <input type="text" id="service" name="service" placeholder="e.g., Haircut, Manicure" required><br><br>
+    <button type="submit">Search</button>
+</form>
+<hr>
+<ul>
+    <li th:each="entry : ${sortedSalonDistances}">
+        <div>
+            <strong>Salon:</strong> <span th:text="${entry.key}"></span><br>
+            <strong>Distance:</strong> <span th:text="${entry.value}"></span><br>
+            <a th:href="'/api/SalonLink/selectsalon?salonName=' + ${entry.key}">View Salon Services</a>
+        </div>
+        <hr>
+    </li>
+</ul>
+
+</body>
+</html>

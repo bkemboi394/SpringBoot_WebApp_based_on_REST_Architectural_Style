@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href= "@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/api/SalonLink/dashboard">Home</a>
+        <a href="/api/SalonLink/profile">Profile</a>
+        <a href="/api/SalonLink/settings">Settings</a>
+    </nav>
+</header>
+<h2>SalonLink Dashboard</h2>
+<ul>
+    <li th:each="salon : ${salons}">
+        <div>
+            <strong>Name:</strong> <span th:text="${salon.name}"></span><br>
+            <strong>Address:</strong> <span th:text="${salon.address}"></span><br>
+            <strong>Services:</strong> <span th:text="${salon.services}"></span><br>
+        </div>
+        <hr>
+    </li>
+</ul>
+<form action="/api/SalonLink/searchforservice" method="get">
+    <button type="submit">Search For Service</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Salon</title>
+    <link rel="stylesheet" th:href= "@{/css/styles.css}">
+</head>
+<body>
+<h2>Services Offered by the Salon</h2>
+<p>Select the services you want to reserve from this salon:</p>
+
+<form action="/api/SalonLink/makereservation" method="post">
+    <div th:each="service : ${services}">
+        <input type="checkbox" th:id="${service}" th:name="selectedServices" th:value="${service}">
+        <label th:for="${service}" th:text="${service}"></label><br>
+    </div>
+    <button type="submit">Make Reservation</button>
+</form>
+
+</body>
+</html>

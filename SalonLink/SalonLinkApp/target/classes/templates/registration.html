@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h2>Registration Form</h2>
+
+
+<div th:if="${error}" class="alert alert-danger">
+    <p th:text="${error}"></p>
+</div>
+
+<form action="/api/SalonLink/registration" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+    <label for="name">Name:</label>
+    <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Firstname Lastname"
+            required
+            pattern="^[A-Z][a-z]+\s[A-Z][a-z]+$"
+            title="Name must be in the format: 'Firstname Lastname', starting with uppercase letters."
+    >
+    <small class="tooltip">Format: Firstname Lastname (e.g., John Doe).</small>
+    <br><br>
+
+    <label for="address">Address:</label>
+    <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="e.g., 6247 Melody Ln, Dallas, TX 75231"
+            required
+            pattern="^\d+\s[\w\s]+,\s[\w\s]+,\s[A-Z]{2}\s\d{5}$"
+            title="Address must be in the format: 'Street, City, State ZIP'."
+    >
+    <small class="tooltip">Format: Street, City, State ZIP (e.g., 6247 Melody Ln, Dallas, TX 75231).</small>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@example.com"
+            required
+            title="Please enter a valid email address."
+    >
+    <small class="tooltip">Ensure you use a valid email format.</small>
+    <br><br>
+
+    <label for="password">Password:</label>
+    <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            minlength="8"
+            pattern=".{8,}"
+            placeholder="Enter your password"
+            title="Password must be at least 8 characters long."
+    >
+    <small class="tooltip">Must be at least 8 characters long.</small>
+    <br><br>
+
+    <label for="confirmPassword">Re-enter Password:</label>
+    <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            required
+            placeholder="Re-enter your password"
+    >
+    <small class="tooltip">Ensure the passwords match.</small>
+    <br><br>
+
+    <label for="myid">Upload a copy of your ID:</label>
+    <input type="file" id="myid" name="myid" accept="image/*" required>
+    <small class="tooltip">Supported formats: JPG, PNG.</small>
+    <br><br>
+
+    <button type="submit">Register</button>
+</form>
+<a href="/api/SalonLink/login">Already have an account? Login</a>
+
+<script>
+    function validateForm() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const address = document.getElementById("address").value;
+
+        // Validate name format
+        const nameRegex = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+        if (!nameRegex.test(name)) {
+            alert("Invalid name format. Name must be in the format: 'Firstname Lastname'.");
+            return false;
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Invalid email format. Please enter a valid email.");
+            return false;
+        }
+
+        // Validate password match
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return false;
+        }
+
+        // Validate address format
+        const addressRegex = /^\d+\s[\w\s]+,\s[\w\s]+,\s[A-Z]{2}\s\d{5}$/;
+        if (!addressRegex.test(address)) {
+            alert("Invalid address format. Use 'Street, City, State ZIP' (e.g., 6247 Melody Ln, Dallas, TX 75231).");
+            return false;
+        }
+
+        return true; // Allow form submission if all checks pass
+    }
+</script>
+</body>
+</html>

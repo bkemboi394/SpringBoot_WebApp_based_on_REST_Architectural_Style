@@ -1,0 +1,189 @@
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('../images/Salon2.png') no-repeat center center fixed;
+    background-size: cover; /* Ensure the background image covers the whole screen */
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Header Styles */
+h1, h2 {
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form and Input Styles */
+form {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for forms */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    color: #007bff ;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+form input[type="file"] {
+    background-color: #f9f9f9;
+}
+
+/* Links */
+a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Message styles (error, success) */
+.alert {
+    background-color: rgba(255, 99, 71, 0.8); /* Tomato color for error */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: rgba(60, 179, 113, 0.8); /* Success color */
+}
+
+.alert-danger {
+    background-color: rgba(255, 99, 71, 0.8); /* Error color */
+}
+
+/* Salon list and service display */
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+li div {
+    margin-bottom: 10px;
+}
+
+li span {
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Modal & Confirmation Styling */
+.confirmation-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.confirmation-dialog button {
+    background-color: #28a745; /* Green */
+}
+
+.confirmation-dialog button.cancel {
+    background-color: #dc3545; /* Red */
+}
+
+.confirmation-dialog.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+        justify-content: flex-start;
+    }
+
+    form {
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    input, button, select {
+        font-size: 14px;
+    }
+
+    .tooltip {
+        font-size: 12px;
+    }
+}
+
