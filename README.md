@@ -81,28 +81,6 @@ mvn spring-boot:run
 Once the application is running, open your web browser and navigate to:
 http://localhost:8080/api/SalonLink/registration
 
---- 
-
-## Project Structure
-
-salonlink/
-├── src/
-│   ├── main/
-│   │   ├── java/com/SAD/SalonLinkApp/
-│   │   │   ├── controller/
-│   │   │   ├── security/
-│   │   │   ├── service/
-│   │   │   ├── repo/
-│   │   │   └── model/
-│   │   ├── resources/
-│   │   │   ├── templates/  # HTML files
-│   │   │   └── static/css/ # Stylesheets
-│   └── test/
-├── pom.xml  # Maven configuration
-└── README.md
-
 ---
 
-## Contributions
-Contributions are welcome! Please open an issue or submit a pull request with your changes.
-  
+
