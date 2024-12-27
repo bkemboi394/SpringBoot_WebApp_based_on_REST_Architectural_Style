@@ -50,7 +50,7 @@ SalonLink is a user-centered web application designed to enable seamless salon s
 ## Getting Started
 Follow these steps to set up and run the SalonLink application locally.
 
-### 1. Prerequisites
+### Prerequisites
 
 Ensure the following software is installed on your machine:
 
@@ -61,39 +61,30 @@ Ensure the following software is installed on your machine:
 
 
 ### Installation and running
-2. Clone the repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/salonlink.git
    cd salonlink
    
-3. Configure Application Properties
+2. Configure Application Properties
 Edit the src/main/resources/application.properties file and provide your PostgreSQL database credentials:
 spring.datasource.url=jdbc:postgresql://localhost:5432/salonlinkdb
 spring.datasource.username=your-username
 spring.datasource.password=your-password
 
-4. Build and Run the Application
+3. Build and Run the Application
 Use Maven to build and run the Spring Boot application:
 bash
 mvn spring-boot:run
 
-6. Access the Application
+4. Access the Application
 Once the application is running, open your web browser and navigate to:
 http://localhost:8080/api/SalonLink/registration
-
----
-
-## Usage
--Register: Create an account by providing your details and uploading an ID.
--Login: Access your account with email and password.
--Browse Salons: View the list of salons on the dashboard.
--Search for Services: Find salons offering specific services.
--Select Services: Choose one or more services offered by a salon.
--Make Reservations: Finalize your reservation and get confirmation.
 
 --- 
 
 ## Project Structure
+
 salonlink/
 ├── src/
 │   ├── main/
